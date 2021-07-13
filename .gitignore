@@ -1,3 +1,4 @@
+hlt_config_*.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
