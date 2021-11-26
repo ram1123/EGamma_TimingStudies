@@ -14,8 +14,8 @@ from GetConfig import ListOfPaths
 
 for count, paths_ in enumerate(ListOfPaths):
     print("===")
-    command1 = "python3 /data/timing/scripts/timing/submit.py hlt_config_13July_%s.py"%(str(count))
-    command2 = "python3 /data/timing/scripts/timing/submit.py hlt_config_13July_Sum_%s.py"%(str(count))
+    command1 = "python3 /data/timing/scripts/timing/submit.py hlt_config_Nov_%s.py"%(str(count))
+    command2 = "python3 /data/timing/scripts/timing/submit.py hlt_config_Nov_Sum_%s.py"%(str(count))
     print("Command: {}".format(command1))
     os.system(command1)
     print("Command: {}".format(command2))

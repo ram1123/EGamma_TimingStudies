@@ -21,23 +21,28 @@ ListOfPaths = [
         "HLT_DoublePhoton70_v6",
         "HLT_DoublePhoton85_v14",
         "HLT_Photon200_v13",
-        "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v19",
+        "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v19"
     ]
 
 def main():
-    Command = "hltGetConfiguration /dev/CMSSW_11_3_0/GRun --globaltag auto:run3_data_GRun --data --process TIMING --full --offline --max-events 100000 --output none --timing --paths HLTriggerFirstPath,HLTriggerFinalPath%s > hlt_config_13July_%s.py"
+    # First Trigger Review
+    #Command = "hltGetConfiguration /dev/CMSSW_11_3_0/GRun --globaltag auto:run3_data_GRun --data --process TIMING --full --offline --max-events 100000 --output none --timing --paths HLTriggerFirstPath,HLTriggerFinalPath%s > hlt_config_13July_%s.py"
 
+    # 2021 December TSG review
+    Command = "hltGetConfiguration /dev/CMSSW_12_1_0/GRun --globaltag auto:run3_data_GRun --data --process TIMING --full --offline --max-events 100000 --output none --timing --paths HLTriggerFirstPath,HLTriggerFinalPath%s > hlt_config_Nov_%s.py"
     AppendPaths = ""
 
+    print("Total path: {}".format(len(ListOfPaths)))
+
     for count, paths_ in enumerate(ListOfPaths):
-        if count > 1: continue
+        # if count > 1: continue
         print("===")
         command1_ = Command%(","+paths_,count)
         AppendPaths = AppendPaths + ","+paths_
         command2_ = Command%(AppendPaths,"Sum_"+str(count))
-        print("Command: {}".format(command1_))
+        print("Command-{:2}: {}".format(count,command1_))
         os.system(command1_)
-        print("Command: {}".format(command2_))
+        print("Command-{:2}: {}".format(count,command2_))
         os.system(command2_)
 
 

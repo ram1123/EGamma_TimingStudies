@@ -7,7 +7,10 @@
 import os
 
 pathToCheck = "/data/timing/output/rasharma/"
-dirToCheck = "CMSSW_11_3_0.20210713"
+# dirToCheck = "CMSSW_11_3_0.20210713"
+dirToCheck = "CMSSW_12_1_0.20211126"
+
+# /data/timing/jobs/rasharma/CMSSW_12_1_0.20211126_004703
 
 # AllDirs = os.listdir(pathToCheck)
 
@@ -39,9 +42,9 @@ for dirpath, dirnames, files in os.walk(pathToCheck):
         for files_ in files:
             if files_.endswith('.csv'):
                 num_lines = sum(1 for line in open(os.path.join(dirpath, files_)))
-                if num_lines == 4:
-                    for line in open(os.path.join(dirpath, files_)):
-                        if ""
+                # if num_lines == 4:
+                #     for line in open(os.path.join(dirpath, files_)):
+                #         if ""
                 if num_lines != 4:
                     # print(files_)
                     dict_files[num_lines] = os.path.join(dirpath, files_)
